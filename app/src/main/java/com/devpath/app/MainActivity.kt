@@ -11,6 +11,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -91,7 +93,7 @@ fun DevPathMainContainer() {
                 NavigationBarItem(
                     selected = currentScreen == DevPathScreen.Catalog,
                     onClick = { currentScreen = DevPathScreen.Catalog },
-                    icon = { Icon(Icons.Default.List, contentDescription = "Parcours") },
+                    icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Parcours") },
                     label = { Text("Parcours") }
                 )
                 NavigationBarItem(
@@ -152,7 +154,7 @@ fun DashboardScreen(onOpenPlayground: () -> Unit) {
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("🔥 Série active : 7 jours", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text("Série active : 7 jours", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(4.dp))
                     Text("XP cumulés : 1 240  |  Maîtrise FSRS : 78%", style = MaterialTheme.typography.bodyMedium)
                     Spacer(modifier = Modifier.height(12.dp))
@@ -197,7 +199,7 @@ fun DashboardScreen(onOpenPlayground: () -> Unit) {
                         Text(text = lesson.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                         Text(text = "${lesson.durationMin} min · +${lesson.xp} XP", style = MaterialTheme.typography.bodySmall)
                     }
-                    Icon(Icons.Default.ArrowForward, contentDescription = "Démarrer", tint = MaterialTheme.colorScheme.primary)
+                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Démarrer", tint = MaterialTheme.colorScheme.primary)
                 }
             }
         }
@@ -253,17 +255,16 @@ print(valider_devpath(1240))") }
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Text("Éditeur Mobile Intégré", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         OutlinedTextField(
             value = code,
             onValueChange = { code = it },
             modifier = Modifier.fillMaxWidth().weight(1f),
-            fontFamily = FontFamily.Monospace,
-            textStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp)
+            textStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp, fontFamily = FontFamily.Monospace)
         )
-        
+
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             items(symbols) { sym ->
                 Button(
@@ -275,9 +276,9 @@ print(valider_devpath(1240))") }
                 }
             }
         }
-        
+
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         Button(
             onClick = { output = "=== EXECUTION OK (Mode Dégradé Local) ===
 Certifié
@@ -288,9 +289,9 @@ Process returned status 0 (0.04s)" },
             Spacer(modifier = Modifier.width(8.dp))
             Text("Exécuter le Code")
         }
-        
+
         Spacer(modifier = Modifier.height(8.dp))
-        
+
         Surface(
             color = Color(0xFF1E293B),
             shape = RoundedCornerShape(8.dp),
@@ -317,7 +318,7 @@ fun AiTutorScreen() {
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text("💬 Tuteur :", fontWeight = FontWeight.Bold)
+                Text("Tuteur :", fontWeight = FontWeight.Bold)
                 Text("Quelle est la différence selon vous entre une variable définie avec 'val' et 'var' en Kotlin ?")
             }
         }
@@ -331,7 +332,7 @@ fun ExamScreen() {
         Spacer(modifier = Modifier.height(24.dp))
         Icon(Icons.Default.CheckCircle, contentDescription = "Certifié", tint = Color(0xFF10B981), modifier = Modifier.size(80.dp))
         Spacer(modifier = Modifier.height(16.dp))
-        Text("Félicitations Badreddine !", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text("Félicitations !", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Text("Vous avez validé le module Fondations & Algorithmique avec un score de 92%.", style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = {}) {
